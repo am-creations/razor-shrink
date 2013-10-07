@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc4ApplicationTest", "Mvc4ApplicationTest\Mvc4ApplicationTest.csproj", "{347EA520-1A0A-4D52-9615-8EB79A279B3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorShrink", "RazorShrink\RazorShrink.csproj", "{007A71AA-88F9-43F6-9CF6-1C4EF1A7FA58}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{347EA520-1A0A-4D52-9615-8EB79A279B3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{347EA520-1A0A-4D52-9615-8EB79A279B3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{347EA520-1A0A-4D52-9615-8EB79A279B3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{347EA520-1A0A-4D52-9615-8EB79A279B3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{007A71AA-88F9-43F6-9CF6-1C4EF1A7FA58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{007A71AA-88F9-43F6-9CF6-1C4EF1A7FA58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{007A71AA-88F9-43F6-9CF6-1C4EF1A7FA58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{007A71AA-88F9-43F6-9CF6-1C4EF1A7FA58}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
