@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HtmlShrinker.cs" />
+    <Compile Include="IHtmlShrinker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebViewPageShrink.cs" />
   </ItemGroup>

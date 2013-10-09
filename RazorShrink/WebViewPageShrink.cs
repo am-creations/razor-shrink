@@ -1,22 +1,29 @@
-﻿using System.Text.RegularExpressions;
-using System.Web;
+﻿using System.Web;
 using System.Web.Mvc;
 
 namespace RazorShrink
 {
-    public abstract class WebViewPageShrink<T> : WebViewPage<T>
+    public abstract class WebViewPageShrink : WebViewPage
     {
-        private static readonly Regex RegexEmptyLines = new Regex(@"\s*\n\s*", RegexOptions.Compiled | RegexOptions.Multiline);
-        private static readonly Regex RegexOverSpace = new Regex(@"\s{2,}", RegexOptions.Compiled | RegexOptions.Multiline);
+        protected WebViewPageShrink()
+        {
+            if (!HtmlShrinker.IsDebuggingEnabled())
+            {
+                Shrinker = new HtmlShrinker();
+            }
+        }
+
+        public IHtmlShrinker Shrinker
+        {
+            get;
+            set;
+        }
 
         public override void Write(object value)
         {
-            if (value != null && !IsDebuggingEnabled() && value is HtmlString)
+            if (Shrinker != null && Shrinker.RawRewriteEnabled && value is IHtmlString)
             {
-                var v = ((HtmlString) value).ToHtmlString();
-                v = RegexEmptyLines.Replace(v, string.Empty);
-                v = RegexOverSpace.Replace(v, " ");
-                value = new HtmlString(v);
+                value = Shrinker.Shrink((IHtmlString)value);
             }
 
             base.Write(value);
@@ -24,25 +31,48 @@ namespace RazorShrink
 
         public override void WriteLiteral(object value)
         {
-            if (value != null && !IsDebuggingEnabled())
+            if (Shrinker != null && value != null)
             {
-                value = RegexEmptyLines.Replace((string)value, string.Empty);
-                value = RegexOverSpace.Replace((string)value, " ");
+                value = Shrinker.Shrink((string)value);
             }
             base.WriteLiteral(value);
         }
 
-        /// <summary>
-        /// Debugging mode or not ??
-        /// </summary>
-        private static bool IsDebuggingEnabled()
+    }
+
+    public abstract class WebViewPageShrink<T> : WebViewPage<T>
+    {
+        protected WebViewPageShrink()
         {
-#if TEST_RAZORSHRINK
-            return false;
-#endif
-            return
-                System.Web.HttpContext.Current == null
-                || System.Web.HttpContext.Current.IsDebuggingEnabled;
+            if (!HtmlShrinker.IsDebuggingEnabled())
+            {
+                Shrinker = new HtmlShrinker();
+            }
+        }
+
+        public IHtmlShrinker Shrinker
+        {
+            get;
+            set;
+        }
+
+        public override void Write(object value)
+        {
+            if (Shrinker != null && Shrinker.RawRewriteEnabled && value is IHtmlString)
+            {
+                value = Shrinker.Shrink((IHtmlString)value);
+            }
+
+            base.Write(value);
+        }
+
+        public override void WriteLiteral(object value)
+        {
+            if (Shrinker != null && value != null)
+            {
+                value = Shrinker.Shrink((string)value);
+            }
+            base.WriteLiteral(value);
         }
     }
 }
