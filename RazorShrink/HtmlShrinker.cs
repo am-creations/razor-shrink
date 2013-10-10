@@ -37,6 +37,10 @@ namespace RazorShrink
 #if TEST_RAZORSHRINK
             return false;
 #endif
+
+#if DONTUSE_RAZORSHRINK
+            return true;
+#endif
             return
                 HttpContext.Current == null
                 || HttpContext.Current.IsDebuggingEnabled;
