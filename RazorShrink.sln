@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc4ApplicationTest", "Mvc4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorShrink", "RazorShrink\RazorShrink.csproj", "{007A71AA-88F9-43F6-9CF6-1C4EF1A7FA58}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorShrink.xUnit", "RazorShrink.xUnit\RazorShrink.xUnit.csproj", "{58C110F3-215B-4D3E-9B17-4037848285E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{007A71AA-88F9-43F6-9CF6-1C4EF1A7FA58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{007A71AA-88F9-43F6-9CF6-1C4EF1A7FA58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{007A71AA-88F9-43F6-9CF6-1C4EF1A7FA58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58C110F3-215B-4D3E-9B17-4037848285E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58C110F3-215B-4D3E-9B17-4037848285E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58C110F3-215B-4D3E-9B17-4037848285E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58C110F3-215B-4D3E-9B17-4037848285E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
