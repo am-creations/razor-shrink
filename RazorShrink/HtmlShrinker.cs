@@ -5,6 +5,7 @@ namespace RazorShrink
 {
     public class HtmlShrinker : IHtmlShrinker
     {
+        private static readonly Regex RegexInlineJavascriptComment = new Regex(@"\/\/.*\n", RegexOptions.Compiled | RegexOptions.Multiline);
         private static readonly Regex RegexEmptyLines = new Regex(@"\s*\n\s*", RegexOptions.Compiled | RegexOptions.Multiline);
         private static readonly Regex RegexOverSpace = new Regex(@"\s{2,}", RegexOptions.Compiled | RegexOptions.Multiline);
 
@@ -23,7 +24,8 @@ namespace RazorShrink
 
         public string Shrink(string val)
         {
-            val = RegexEmptyLines.Replace(val, string.Empty);
+            val = RegexInlineJavascriptComment.Replace(val, string.Empty);
+            val = RegexEmptyLines.Replace(val, " ");
             val = RegexOverSpace.Replace(val, " ");
 
             return val;
